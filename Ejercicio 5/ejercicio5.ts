@@ -17,7 +17,7 @@ const tareas = [
 
 function isValidName(name: string): boolean {
   // Regular expression to check if the name is valid
-  const nameRegex = /^[a-zA-ZÀ-ÿ]+([ '-][a-zA-ZÀ-ÿ]+)?$/;
+  const nameRegex = /^[a-zA-ZÀ-ÿ\s-]+([ '-][a-zA-ZÀ-ÿ\s-]+)*$/;
 
   // Test the name against the regular expression
   return nameRegex.test(name);
@@ -34,9 +34,9 @@ function getTasks() {
 async function displayTasks(persona) {
   try {
     const tasksList = await getTasks();
-    const filteredTasks = tasksList.filter((task) => task.persona === persona);
+    const filteredTasks = tasksList.filter((task: string) => task.persona === persona);
 
-    console.log(`Tareas assigned to ${persona}:`);
+    console.log(\- ${task.title} (prioridad: ${task.prioridad}, vencimiento: ${task.deadline.toLocaleDateString()})`);
 
     filteredTasks
       .filter((task) => !task.completada)
@@ -44,7 +44,6 @@ async function displayTasks(persona) {
         if (a.prioridad < b.prioridad) return -1;
         if (a.prioridad > b.prioridad) return 1;
 
-        // If priorities are equal, sort by deadline
         if (a.deadline < b.deadline) return -1;
         if (a.deadline > b.deadline) return 1;
 
@@ -53,7 +52,7 @@ async function displayTasks(persona) {
       .forEach((task) => console.log(`- ${task.title} (prioridad: ${task.prioridad}, vencimiento: ${task.deadline.toLocaleDateString()})`));
 
   } catch (error) {
-    console.error(error);
+    console.error(error.message);
   }
 }
 
