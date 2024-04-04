@@ -8,11 +8,11 @@ interface Task {
   }
 
 const tareas = [
-  { title: 'Tarea 1', prioridad: 'High', completada: false, persona: 'Alice' },
-  { title: 'Tarea 2', prioridad: 'Medium', completada: true, persona: 'Bob' },
-  { title: 'Tarea 3', prioridad: 'Low', completada: false, persona: 'Alice' },
-  { title: 'Tarea 4', prioridad: 'High', completada: false, persona: 'Charlie' },
-  { title: 'Tarea 5', prioridad: 'Medium', completada: true, persona: 'Bob' },
+  { title: 'Tarea 1', prioridad: 'Alta', completada: false, persona: 'Alice' },
+  { title: 'Tarea 2', prioridad: 'Media', completada: true, persona: 'Bob' },
+  { title: 'Tarea 3', prioridad: 'Baja', completada: false, persona: 'Alice' },
+  { title: 'Tarea 4', prioridad: 'Alta', completada: false, persona: 'Charlie' },
+  { title: 'Tarea 5', prioridad: 'Media', completada: true, persona: 'Bob' },
 ];
 
 function isValidName(name: string): boolean {
